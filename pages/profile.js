@@ -1,4 +1,4 @@
-//import { getSession } from 'next-auth/client';
+// import { getSession } from 'next-auth/client';
 import UserProfile from '../components/profile/user-profile';
 import jsCookie from 'js-cookie';
 import AuthPage from './auth';
@@ -12,8 +12,6 @@ function ProfilePage() {
     return <AuthPage />;
   }
 }
-
-
 
 
 export default ProfilePage;

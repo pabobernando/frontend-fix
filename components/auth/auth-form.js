@@ -1,38 +1,38 @@
-import { useState, useRef } from 'react';
-import classes from './auth-form.module.css';
-import { useRouter } from 'next/router';
-import jsCookie from 'js-cookie';
-//import axios from 'axios';
+import { useState, useRef } from "react";
+import classes from "./auth-form.module.css";
+import { useRouter } from "next/router";
+import jsCookie from "js-cookie";
+// import axios from 'axios';
 
 async function createUser(email, password) {
-  const response = await fetch('http://localhost:3001/userGames/add', {
-    method: 'POST',
+  const response = await fetch("http://localhost:3001/userGames/add", {
+    method: "POST",
     body: JSON.stringify({ email, password }),
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   });
 
   const data = await response.json();
   if (!response.ok) {
-    throw new Error(data.message || 'Something went wrong!');
+    throw new Error(data.message || "Something went wrong!");
   }
   return data;
 }
 
 async function login(email, password) {
-  const response = await fetch('http://localhost:3001/userGames/login', {
-    method: 'POST',
+  const response = await fetch("http://localhost:3001/userGames/login", {
+    method: "POST",
     body: JSON.stringify({ email, password }),
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   });
 
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || 'Something went wrong!');
+    throw new Error(data.message || "Something went wrong!");
   }
   return data;
 }
@@ -82,23 +82,23 @@ function AuthForm() {
       try {
         const result = await login(enteredEmail, enteredPassword);
         if (!result.error) {
-          router.replace('/profile');
-          jsCookie.set('token', result.token);
+          router.replace("/profile");
+          jsCookie.set("token", result.token);
         } else {
-          console.log('gagal login');
+          console.log("gagal login");
         }
       } catch (error) {
         console.log(error);
       }
     } else {
-      //sign up
+      // sign up
       try {
         const result = await createUser(enteredEmail, enteredPassword);
         console.log(result);
         if (!result.error) {
-          router.replace('/');
+          router.replace("/");
         } else {
-          console.log('gagal daftar');
+          console.log("gagal daftar");
         }
       } catch (error) {
         console.log(error);
@@ -108,7 +108,7 @@ function AuthForm() {
 
   return (
     <section className={classes.auth}>
-      <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
+      <h1>{isLogin ? "Login" : "Sign Up"}</h1>
       <form onSubmit={submitHandler}>
         <div className={classes.control}>
           <label htmlFor="email">Your Email</label>
@@ -116,12 +116,21 @@ function AuthForm() {
         </div>
         <div className={classes.control}>
           <label htmlFor="password">Your Password</label>
-          <input type="password" id="password" required ref={passwordInputRef} />
+          <input
+            type="password"
+            id="password"
+            required
+            ref={passwordInputRef}
+          />
         </div>
         <div className={classes.actions}>
-          <button>{isLogin ? 'Login' : 'Create Account'}</button>
-          <button type="button" className={classes.toggle} onClick={switchAuthModeHandler}>
-            {isLogin ? 'Create new account' : 'Login with existing account'}
+          <button>{isLogin ? "Login" : "Create Account"}</button>
+          <button
+            type="button"
+            className={classes.toggle}
+            onClick={switchAuthModeHandler}
+          >
+            {isLogin ? "Create new account" : "Login with existing account"}
           </button>
         </div>
       </form>

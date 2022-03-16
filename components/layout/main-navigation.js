@@ -1,18 +1,18 @@
 import Link from 'next/link';
 import classes from './main-navigation.module.css';
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/router';
 import jsCookie from 'js-cookie';
 
 function MainNavigation() {
   const router = useRouter();
-  //logout not working
+  // logout not working
   async function logoutHandler() {
     const Token = jsCookie.get('token');
     const response = await fetch('http://localhost:3001/userGames/logout', {
       method: 'POST',
-      //body: JSON.stringify[{ token: token }],
+      // body: JSON.stringify[{ token: token }],
       headers: {
-        authorization: `Bearer ${Token}`,
+        "authorization": `Bearer ${Token}`,
         'Content-Type': 'application/json',
       },
     });

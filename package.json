@@ -1,6 +1,9 @@
 {
   "name": "nextjs-course",
   "version": "0.1.0",
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000",
@@ -8,7 +11,8 @@
     "start": "next start -p $PORT",
     "heroku-postbuild": "npm run build",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "dependencies": {
     "@react-pdf/renderer": "^2.1.1",

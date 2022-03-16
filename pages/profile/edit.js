@@ -1,4 +1,4 @@
-//import { getSession } from 'next-auth/client';
+// import { getSession } from 'next-auth/client';
 import ProfileForm from '../../components/profile/profile-form';
 import jsCookie from 'js-cookie';
 import AuthPage from '../auth';

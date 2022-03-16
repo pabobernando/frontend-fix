@@ -1,5 +1,5 @@
 import React from 'react';
-import { Player, BigPlayButton } from 'video-react';
+import {Player, BigPlayButton} from 'video-react';
 import '../../node_modules/video-react/dist/video-react.css';
 
 function PlayVideoGame() {
