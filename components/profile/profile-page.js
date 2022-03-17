@@ -25,14 +25,14 @@ function ProfilePage() {
   }, []);
 
   // gambar
-  const [image, setImage] = useState([]);
-  const [saveImage, setSaveImage] = useState(null);
+  // const [image, setImage] = useState(["https://fakeimg.pl/250x100/"]);
+  // const [saveImage, setSaveImage] = useState(null);
 
-  function handleUploadChange(e) {
-    console.log(e.target.files[0]);
-    let uploaded = e.target.files[0];
-    setImage(URL.createObjectURL(uploaded));
-  }
+  // function handleUploadChange(e) {
+  //   console.log(e.target.files[0]);
+  //   let uploaded = e.target.files[0];
+  //   setImage(URL.createObjectURL(uploaded));
+  // }
 
   return (
     <div className="container">
