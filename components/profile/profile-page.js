@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import ProfilePic from "../../public/assets/avatar.png";
 import axios from "axios";
 import jsCookie from "js-cookie";
 
@@ -24,15 +23,13 @@ function ProfilePage() {
     fetchData();
   }, []);
 
-  // gambar
-  // const [image, setImage] = useState(["https://fakeimg.pl/250x100/"]);
-  // const [saveImage, setSaveImage] = useState(null);
+  // gambar;
+  const [image, setImage] = useState("https://fakeimg.pl/250x100/");
 
-  // function handleUploadChange(e) {
-  //   console.log(e.target.files[0]);
-  //   let uploaded = e.target.files[0];
-  //   setImage(URL.createObjectURL(uploaded));
-  // }
+  function handleUploadChange(e) {
+    const uploaded = e.target.files[0];
+    setImage(URL.createObjectURL(uploaded));
+  }
 
   return (
     <div className="container">
@@ -42,7 +39,7 @@ function ProfilePage() {
             <div className="row ">
               <div className="col-md-4 bg-secondary p-1">
                 <Image
-                  src={ProfilePic}
+                  src={image}
                   className="img-thumbnail"
                   width={200}
                   height={150}
@@ -68,7 +65,7 @@ function ProfilePage() {
                   type="file"
                   className="form-control"
                   id="formFile"
-                  // onChange={handleUploadChange}
+                  onChange={handleUploadChange}
                   accept="image/*"
                 />
                 <button type="button" className="btn btn-dark mt-1">
