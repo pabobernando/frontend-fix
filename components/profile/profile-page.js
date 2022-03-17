@@ -68,7 +68,7 @@ function ProfilePage() {
                   type="file"
                   className="form-control"
                   id="formFile"
-                  onChange={handleUploadChange}
+                  // onChange={handleUploadChange}
                   accept="image/*"
                 />
                 <button type="button" className="btn btn-dark mt-1">
