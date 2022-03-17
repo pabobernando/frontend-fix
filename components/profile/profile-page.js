@@ -34,19 +34,18 @@ function ProfilePage() {
   return (
     <div className="container">
       <div className="row ">
-        <div className="col-6">
+        <div className="col-12 text-center">
           <div className="container pt-5 pb-5">
             <div className="row ">
-              <div className="col-md-4 bg-secondary p-1">
+              <div className="col-md-12 p-1">
                 <Image
                   src={image}
-                  className="img-thumbnail"
+                  className="img-thumbnail rounded-circle"
                   width={200}
                   height={150}
                 />
               </div>
-
-              <div className="col-md-8 bg-secondary text-center">
+              <div className="col-md-12 bg-secondary text-center">
                 <h2>{user.userName}</h2>
                 <p>{user._id}</p>
                 <button type="button" className="btn btn-primary">

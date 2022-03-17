@@ -118,13 +118,16 @@ function AuthForm() {
           <label htmlFor="password">Your Password</label>
           <input
             type="password"
+            placeholder="Password"
             id="password"
             required
             ref={passwordInputRef}
           />
         </div>
         <div className={classes.actions}>
-          <button>{isLogin ? "Login" : "Create Account"}</button>
+          <button data-testid="login">
+            {isLogin ? "Login" : "Create Account"}
+          </button>
           <button
             type="button"
             className={classes.toggle}

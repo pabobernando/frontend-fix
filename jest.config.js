@@ -1,14 +1,12 @@
-// Sync object
-/** @type {import('@jest/types').Config.InitialOptions} */
-const config = {
-  verbose: true,
+const nextJest = require("next/jest");
+
+const createJestConfig = nextJest({
+  dir: "./frontend-final/profile/profile-page.js",
+});
+
+const customJestConfig = {
+  moduleDirectories: ["node_modules", "<rootDir>/"],
+  testEnvironment: "jest-environment-jsdom",
 };
 
-module.exports = config;
-
-// Or async function
-module.exports = async () => {
-  return {
-    verbose: true,
-  };
-};
+module.exports = createJestConfig(customJestConfig);
